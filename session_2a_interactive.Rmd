@@ -7,7 +7,50 @@ output: html_document
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
-library(usethis)
-library(tidyverse)
+```
+
+## Derivatives in R
+
+```{r}
+fx <- expression(x^2)
+
+df_dx <- D(expr = fx, name = 'x')
+
+df_dx
+
+# Evaluate Slope of f(x) at x = 831
+
+x <- 831
+eval(expr = df_dx)
+```
+
+```{r}
+gt <- expression(3* t ^ 2 - 4 *cos(t))
+
+dg_dt <- D(expr = gt, name = 't')
+
+dg_dt
+```
+
+```{r}
+ry <- expression((4 / y ^ -3) + log(y))
+
+dr_dy <- D(expr = ry, name = 'y')
+
+dr_dy
+```
+
+## For a range of values
+```{r}
+fx <- expression(x^2)
+
+df_dx <- D(expr = fx, name = 'x')
+
+df_dx
+
+# Evaluate Slope of f(x) at a range of x
+
+x <- seq(from = -10, to = 10, by = 0.5)
+eval(expr = df_dx)
 ```
 
